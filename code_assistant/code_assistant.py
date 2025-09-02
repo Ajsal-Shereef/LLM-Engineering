@@ -22,7 +22,6 @@ user_prompt = "Explain the below code line by line with comments" + question
 message = [{"role" : "system", "content" : system_prompt},
            {"role" : "user", "content" : user_prompt}]
 
-response = ollama.chat(model="llama3.2", messages = message)
-reply = response["message"]["content"]
-# Use the rich console to print the Markdown object
-console.print(Markdown(reply))
+response = ollama.chat(model="llama3.2", messages = message, stream = True)
+for chunk in response:
+  print(chunk['message']['content'], end='', flush=True)
