@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 
 #ollama API
 OLLAMA_API = "http://localhost:11434/api/chat"
-HEADERS = {"Content-Type": "application/json"}
 MODEL = "llama3.2"
 
 system_message = "You are an assistant that analyzes the contents of a company website landing page \
